@@ -16,4 +16,8 @@ async def on_server_ready():
 
 @on_server_stop
 async def on_server_stop():
-    print('*sad server stopping noises*')
+    print('*bish you better start this server back up*')
+
+
+async def setup():
+    print('setup function called for the example plugin!')
