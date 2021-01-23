@@ -1,23 +1,27 @@
-from pymine.api.server import on_server_ready, on_server_stop
-from pymine.api.packet import handle_packet
+from pymine.server import server
 
 
-@handle_packet("handshaking", 0x00)
-async def example_handle_handshake(stream, packet):
-    print("Handshake packet received!")
+@server.api.events.on_packet("handshaking", 0x00)
+async def example_handle_handshake(self, stream, packet):
+    server.logger.info("Handshake packet received (example plugin speaking!)")
 
     return True, stream
 
 
-@on_server_ready
-async def on_server_ready():
-    print("AYYY SERVER DO BE WORKING THO NGL")
+@server.api.events.on_server_ready
+async def on_server_ready(self):
+    server.logger.info("AYYY SERVER DO BE READY THO NGL?")
+
+    
+@server.api.events.on_server_stop
+async def on_server_stop(self):
+    server.logger.info("bish you better start this server back up")
 
 
-@on_server_stop
-async def on_server_stop():
-    print("*bish you better start this server back up*")
+async def setup(server, plugin_yml):
+    server.logger.info("setup coroutine called for the example plugin!")
+    server.logger.debug(str(plugin_yml))
 
 
-async def setup():
-    print("setup function called for the example plugin!")
+async def teardown(server):
+    server.logger.info("teardown coroutine called for the example plugin!")
