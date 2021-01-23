@@ -2,19 +2,19 @@ from pymine.server import server
 
 
 @server.api.events.on_packet("handshaking", 0x00)
-async def example_handle_handshake(self, stream, packet):
+async def example_handle_handshake(stream, packet):
     server.logger.info("Handshake packet received (example plugin speaking!)")
 
     return True, stream
 
 
 @server.api.events.on_server_ready
-async def on_server_ready(self):
+async def on_server_ready():
     server.logger.info("AYYY SERVER DO BE READY THO NGL?")
 
     
 @server.api.events.on_server_stop
-async def on_server_stop(self):
+async def on_server_stop():
     server.logger.info("bish you better start this server back up")
 
 
