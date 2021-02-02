@@ -3,7 +3,7 @@ from pymine.server import server
 
 @server.api.events.on_packet("handshaking", 0x00)
 async def example_handle_handshake(stream, packet):
-    server.logger.info("Handshake packet received (example plugin speaking!)")
+    server.logger.debug("Handshake packet received (example plugin speaking!)")
 
     return True, stream
 
