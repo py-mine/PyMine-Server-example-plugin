@@ -3,8 +3,7 @@ from pymine.server import server
 
 
 class MyExamplePlugin(AbstractPlugin):
-    def __init__(self, server, plugin_yml):
-        self.server = server
+    def __init__(self, plugin_yml):
         self.config = plugin_yml
 
     @server.api.register.on_packet("handshaking", 0x00)
@@ -23,8 +22,8 @@ class MyExamplePlugin(AbstractPlugin):
         server.console.debug("EXAMPLE PLUGIN: being torn down...")
 
 
-async def setup(server, plugin_yml):
-    server.api.add_plugin(MyExamplePlugin(server, plugin_yml))
+async def setup(plugin_yml):
+    server.api.add_plugin(MyExamplePlugin(plugin_yml))
 
 
 # from pymine.server import server
