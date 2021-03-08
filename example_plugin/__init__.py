@@ -1,6 +1,7 @@
 from pymine.api.abc import AbstractPlugin
 from pymine.server import server
 
+
 class MyExamplePlugin(AbstractPlugin):
     def __init__(self, server, plugin_yml):
         self.server = server
@@ -21,8 +22,6 @@ class MyExamplePlugin(AbstractPlugin):
 
 def setup(server, plugin_yml):
     server.api.add_plugin(MyExamplePlugin(server, plugin_yml))
-
-
 
 
 # from pymine.server import server
