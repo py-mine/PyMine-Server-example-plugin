@@ -19,12 +19,12 @@ class MyExamplePlugin(AbstractPlugin):
     async def my_server_stop_handler():
         server.console.debug("EXAMPLE PLUGIN: bishhh you better be starting this server right back up or else")
 
+    async def teardown(self):
+        pass
+
 
 async def setup(server, plugin_yml):
     server.api.add_plugin(MyExamplePlugin(server, plugin_yml))
-
-async def teardown(server):
-    pass
 
 
 # from pymine.server import server
