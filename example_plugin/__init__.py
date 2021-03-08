@@ -1,5 +1,5 @@
 from pymine.api.abc import AbstractPlugin
-from pymine.server import server
+from pymine import add_plugin
 
 
 class MyExamplePlugin(AbstractPlugin):
@@ -24,7 +24,7 @@ class MyExamplePlugin(AbstractPlugin):
 
 
 async def setup(server, plugin_yml):
-    server.api.add_plugin(MyExamplePlugin(server, plugin_yml))
+    add_plugin(MyExamplePlugin(server, plugin_yml))
 
 
 # from pymine.server import server
