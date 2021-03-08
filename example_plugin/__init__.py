@@ -20,7 +20,7 @@ class MyExamplePlugin(AbstractPlugin):
         server.console.debug("EXAMPLE PLUGIN: bishhh you better be starting this server right back up or else")
 
     async def teardown(self):
-        pass
+        server.console.debug("EXAMPLE PLUGIN: being teared down...")
 
 
 async def setup(server, plugin_yml):
