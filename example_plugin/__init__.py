@@ -7,7 +7,7 @@ class MyExamplePlugin(AbstractPlugin):
         self.config = plugin_yml
 
     @server.api.register.on_packet("handshaking", 0x00)
-    async def my_packet_handler(stream, placket):
+    async def my_packet_handler(stream, packet):
         server.console.debug("EXAMPLE PLUGIN: Handshake packet received!")
 
     @server.api.register.on_server_start
