@@ -1,4 +1,4 @@
-from pymine.api.abc import AbstractPlugin
+from pymine.types.abc import AbstractPlugin
 from pymine.server import server
 
 
